@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JSX and Babel</title>
+</head>
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    
+//BASIC LEVEL
+    let root=document.getElementById('root');
+    let createRoot=ReactDOM.createRoot(root);
+        let element=<>
+                <p>Seize the day</p>
+        </>
+    //JSX element ie. `element` with `p` tag and the inner text of the `p` tag is "Seize the day"
+    createRoot.render(element)
+
+//INTERMEDIATE LEVEL
+    let root1=document.getElementById('root');
+    let createRoot1=ReactDOM.createRoot(root);
+    let text="Seize the day"
+        let element1=<>
+                <p>{text}</p>
+        </>
+    //element1 is a JSX element that contain `p` tag and the `p` tag contain variable(text) and the variable contain dynamic text "Seize the day"
+    createRoot1.render(element1)
+   
+//ADVANCED LEVEL
+    let root2=document.getElementById('root');
+    let createRoot2=ReactDOM.createRoot(root);
+    let isTrue=true;
+    let element2=<>
+          {isTrue?(<p>Seize the day</p>):(<p>Make the most of it</p>)}
+    </>
+    // element2 is a JSX element that contain `p` tag with condition true/false, 
+    // if the `isTrue` is true than display "Seize the day day" otherwise "Make the most of it".
+    createRoot2.render(element2)
+  </script>
+</body>
+</html>

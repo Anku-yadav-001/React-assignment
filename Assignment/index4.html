@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+
+<body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://www.unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
+    <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+    <script type="text/babel">
+    let root=document.getElementById('root')
+    let createRoot=ReactDOM.createRoot(root)
+    //Header component
+    function Header(props){
+             return <>
+             <header>{props.headerData}</header>
+             </>
+    }
+    //footer component
+    function Footer(props){
+        return <>
+                <footer>App footer: {props.FooterContent}</footer>
+             </>
+    }
+    //main component
+    function Content(){
+        return <><section>Main content of the app</section>
+             </>
+    }
+    //Parent component
+    function App(){
+      let FooterData="This is header data"
+        return <>
+        {/*data pass form header to footer*/}
+           <Header headerData="This is header"/>
+           <Content/>
+           <Footer FooterContent={FooterData}/>
+        </>
+    }
+    createRoot.render(<App/>)
+    </script>
+
+    <!-- 
+
+    When Babel processes JSX code, it essentially transforms it into React.createElement calls.
+
+    
+        let element = <h1 className="greeting">Hello, world!</h1>;
+        Babel compiles this into:
+        let element = React.createElement('h1', { className: 'greeting' }, 'Hello, world!');
+        The React.createElement function takes three arguments:
+
+            The type of element ('h1').
+            The props object ({ className: 'greeting' }).
+            The children of the element ('Hello, world!').
+     -->
+  </body>
+</html>

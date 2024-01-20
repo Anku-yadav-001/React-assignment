@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+
+<body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://www.unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
+    <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+    <script type="text/babel">
+    let root=document.getElementById('root')
+    let createRoot=ReactDOM.createRoot(root)
+
+    //React component "JSXShowcase"
+    function JSXShowcase(){
+      
+       //JavaScript variable message
+       let JsVariable="I'm JavaScript variable innerText"
+
+       //JavaScript function-js function that return sum of two number on the JSX with `JsFunctionAdd` component.
+       function JsFunctionAdd(){
+        return 5+4;
+       }
+
+       //JavaSript Array-Array that shows the Name onto the DOM with the help of JSX
+       let JsArrayWithName=["Aman","Anku","Suryansh","Raghav"]
+
+    
+       //JavaScript condition variavle that defines Boolean values.
+      let isLoggedIn =true;
+        return <>
+           {/*Element Rendering: */}
+             <p>This is p-tag</p>
+             <div>This is Division tag</div>
+             <button>Click me. I'm button</button>
+
+            {/*JavaScript Integration:*/}
+            <p>{JsVariable}</p>
+            <h1><JsFunctionAdd/></h1>
+            {JsArrayWithName.map((names) => (
+              <li>{names}</li>
+            ))}
+        
+            {/*Conditional Rendering: */}
+            {isLoggedIn?(<h1>Login success</h1>):(<h1>Login Failed</h1>)}
+        </>
+    }
+    createRoot.render(<JSXShowcase/>)
+    </script>
+  </body>
+</html>
